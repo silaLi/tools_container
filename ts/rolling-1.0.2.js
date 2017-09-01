@@ -313,18 +313,21 @@ import './rolling-1.0.1.scss';
      * @param  {[type]} setting [Ro设置]
      */
     function outsider_initialize(elem, setting) {
-        if (AttributeGetter(elem, 'roid') != '') {
-            Ro.update(elem);
-            return ;
-        }
-        var setting = extendObj(settingDefault, setting || {});
-
         if (elem.length) {
             for (var i = 0, len = elem.length; i < len; i++) {
-                constructor(elem[i], setting);
+                checkRoid(elem[i], setting);
             }
         } else {
-            constructor(elem, setting);
+            checkRoid(elem, setting);
+        }
+        function checkRoid(elem, setting){
+            var roid = AttributeGetter(elem, 'roid');
+            if (roid == null || roid == undefined || roid == '') {
+                var setting = extendObj(settingDefault, setting || {});
+                constructor(elem, setting);
+            }else{
+                Ro.update(elem);
+            }
         }
     }
 

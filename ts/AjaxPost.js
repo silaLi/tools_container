@@ -245,7 +245,7 @@ Container.set('JSONP', function(_$, AjaxData, CreateId, DomReadyComplete){
 ;Container.set('AjaxData', function() {
     return function(data, type) {
         type = type || ''
-        type = type.toUpperCase() === 'POST' ? 'POST' : 'GEt';
+        type = type.toUpperCase() === 'POST' ? 'POST' : 'GET';
         var dataArr = [];
 
         var ajaxData = dealData(data, type);
