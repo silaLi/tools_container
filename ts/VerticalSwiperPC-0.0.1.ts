@@ -11,7 +11,7 @@ export default class VerticalSwiper {
     wrapperHeight: number;
     trackHeight: number;
     trainHeight: number;
-    constructor(option) {
+    constructor(option: any) {
         this.swiper = option.swiper;
         this.wrapper = option.wrapper;
         this.trackY = option.trackY;
@@ -33,7 +33,7 @@ export default class VerticalSwiper {
         
     }
 }
-function getElemHeight(elem){
+function getElemHeight(elem: any){
     elem.style.cssText = 'visibility: hidden;display: block';
     let height = 0;
     try{
