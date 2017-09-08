@@ -248,7 +248,9 @@ function DomAPI(elemSelector, elemParent) {
         } else {
             return self.elemList[index];
         }
-
+    }
+    self.getEl = function(index){
+        return self.getElemList(index)
     }
     self.setElemList = function(elemList) {
             self.elemList = elemList;
