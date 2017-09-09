@@ -1,4 +1,5 @@
 let _$ = require('./DomAPI-0.0.2.js');
+
 export default class Selector {
 	elem: any;
 	domAPI: any;
@@ -7,7 +8,7 @@ export default class Selector {
 	selectedIndex: any;
 	change: any;
 	initData: any;
-	constructor(opt) {
+	constructor(opt: any) {
 		opt = opt || {};
 
 		this.elem = opt.elem
@@ -31,7 +32,7 @@ export default class Selector {
 			};
 		}
 	}
-	setItems(items){
+	setItems(items: any){
 		this.items = items;
 		this.initData && this.initData(this.items);
 
@@ -58,11 +59,11 @@ export default class Selector {
 	getSelectedIndex(){
 		return this.selectedIndex;
 	}
-	setElemValueByIndex(index){
+	setElemValueByIndex(index: number){
 		this.domAPI.find('option[selected]').removeAttr('selected');
 		this.domAPI.find('option').index(this.selectedIndex + 1).setAttr('selected');
 	}
-	setValueByIndex(index){
+	setValueByIndex(index: number){
 		if (this.selectedIndex !== index) {
 			this.selectedIndex = index;
 			this.setElemValueByIndex(index);

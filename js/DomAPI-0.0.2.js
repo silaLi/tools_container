@@ -376,22 +376,19 @@ function DomAPI(elemSelector, elemParent) {
     // dom 事件 ctrl
     //########################################################
     self.on = function(eventType, next, useCapture) {
-        var self = this;
-        each(eventType.split(' '), function(theEventType){
-            $$.Event.on(self.getElemList(), theEventType, next, useCapture)
-        })
+        $$.Event.on(this.getElemList(), eventType, next, useCapture)
     }
 
     self.off = function(eventType, next, useCapture) {
         $$.Event.off(this.getElemList(), eventType, next, useCapture)
     }
     self.each = function(handle) {
-        var elemList = this.getElemList();
-        for (var i = elemList.length - 1; i >= 0; i--) {
-            handle(elemList[i], i)
+            var elemList = this.getElemList();
+            for (var i = elemList.length - 1; i >= 0; i--) {
+                handle(elemList[i], i)
+            }
         }
-    }
-    //########################################################
+        //########################################################
 
 
     //########################################################
@@ -406,7 +403,6 @@ function DomAPI(elemSelector, elemParent) {
                 }
             }
         })
-        return this;
     }
     self.cssArray = function(cssStyleList) {
         var self = this;
@@ -414,7 +410,6 @@ function DomAPI(elemSelector, elemParent) {
         each(cssStyleList, function(cssStyle) {
             self.css(cssStyle);
         })
-        return this;
     }
     self.index = function(index) {
         return $$.render([this.getElemList(index)])

@@ -55,7 +55,7 @@ export default class BackTop{
 		;
 
 	}
-	setScrollTop(top){
+	setScrollTop(top: number){
 		if (this.scrollElem) {
 			this.scrollElem.scrollTop = top;
 		}else{
