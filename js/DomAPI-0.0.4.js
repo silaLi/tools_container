@@ -248,7 +248,9 @@ function DomAPI(elemSelector, elemParent) {
         } else {
             return self.elemList[index];
         }
-
+    }
+    self.getEl = function(index){
+        return self.getElemList(index)
     }
     self.setElemList = function(elemList) {
             self.elemList = elemList;
@@ -376,19 +378,22 @@ function DomAPI(elemSelector, elemParent) {
     // dom 事件 ctrl
     //########################################################
     self.on = function(eventType, next, useCapture) {
-        $$.Event.on(this.getElemList(), eventType, next, useCapture)
+        var self = this;
+        each(eventType.split(' '), function(theEventType){
+            $$.Event.on(self.getElemList(), theEventType, next, useCapture)
+        })
     }
 
     self.off = function(eventType, next, useCapture) {
         $$.Event.off(this.getElemList(), eventType, next, useCapture)
     }
     self.each = function(handle) {
-            var elemList = this.getElemList();
-            for (var i = elemList.length - 1; i >= 0; i--) {
-                handle(elemList[i], i)
-            }
+        var elemList = this.getElemList();
+        for (var i = elemList.length - 1; i >= 0; i--) {
+            handle(elemList[i], i)
         }
-        //########################################################
+    }
+    //########################################################
 
 
     //########################################################
@@ -403,6 +408,7 @@ function DomAPI(elemSelector, elemParent) {
                 }
             }
         })
+        return this;
     }
     self.cssArray = function(cssStyleList) {
         var self = this;
@@ -410,6 +416,7 @@ function DomAPI(elemSelector, elemParent) {
         each(cssStyleList, function(cssStyle) {
             self.css(cssStyle);
         })
+        return this;
     }
     self.index = function(index) {
         return $$.render([this.getElemList(index)])
@@ -431,12 +438,27 @@ function DomAPI(elemSelector, elemParent) {
     //########################################################
     self.text = function(text) {
         var elemList = self.getElemList();
+        if (text === undefined) {
+            each(elemList, function(elem) {
+                var theText = '';
+                theText = elem.innerText
+                theText = theText === '' ? elem.textContext : theText;
+                text = theText;
+            })
+            return text;
+        }
         each(elemList, function(elem) {
             elem.innerText = text;
             elem.textContext = text;
         })
     }
     self.html = function(html) {
+        if (html === undefined) {
+            each(elemList, function(elem) {
+                html = elem.innerHTML;
+            })
+            return html;
+        }
         var elemList = self.getElemList();
         each(elemList, function(elem) {
             elem.innerHTML = html;
@@ -500,5 +522,5 @@ $$.pdsp = function(e) {
 // Class mark
 //########################################################
 $$.Class = DomAPI;
-$$.version = '0.0.2';
+$$.version = '0.0.4'
 module.exports = $$;

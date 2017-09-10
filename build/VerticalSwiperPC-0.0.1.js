@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var _$ = require('./DomAPI-0.0.2.js');
 var AutoprefixerCssStyle = require('./AutoprefixerCssStyle-0.0.1.js');
-var VerticalSwiper = (function () {
+var VerticalSwiper = /** @class */ (function () {
     function VerticalSwiper(option) {
         this.swiper = option.swiper;
         this.wrapper = option.wrapper;

@@ -500,4 +500,5 @@ $$.pdsp = function(e) {
 // Class mark
 //########################################################
 $$.Class = DomAPI;
+$$.version = '0.0.2';
 module.exports = $$;

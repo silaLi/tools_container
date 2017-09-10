@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var _$ = require('./DomAPI-0.0.2.js');
-var Selector = (function () {
+var Selector = /** @class */ (function () {
     function Selector(opt) {
         opt = opt || {};
         this.elem = opt.elem;
