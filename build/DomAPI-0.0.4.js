@@ -372,7 +372,12 @@ function DomAPI(elemSelector, elemParent) {
                 }
             });
         }
-        //########################################################
+    self.replace = function(newelem){
+        each(self.getElemList(), function(oldelem) {
+            oldelem.parentNode.replaceChild(newelem, oldelem);
+        });
+    }
+    //########################################################
 
     //########################################################
     // dom 事件 ctrl
