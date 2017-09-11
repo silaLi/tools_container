@@ -13,3 +13,5 @@ sftp-config.json
 *.sublime-workspace
 
 private_config/
+
+build
