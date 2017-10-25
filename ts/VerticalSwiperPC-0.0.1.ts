@@ -23,7 +23,7 @@ export default class VerticalSwiper {
         this.trackHeight = this.trackY.clientHeight;
         this.trainHeight = this.swiperHeight / this.wrapperHeight * this.trackHeight;
 
-        this.trainY.css({ height: this.trainHeight + 'px', top: 0})
+        _$.render(this.trainY).css({ height: this.trainHeight + 'px', top: 0})
         this.Event();
     }
     Event(){
