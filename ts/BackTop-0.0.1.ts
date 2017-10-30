@@ -1,4 +1,7 @@
-let _$ = require('./DomAPI-0.0.2.js');
+import './BackTop-0.0.1.scss';
+
+
+let _$ = require('./DomAPI-0.0.4.js');
 let AutoprefixerCssStyle = require('./AutoprefixerCssStyle-0.0.1.js');
 
 let html = `
@@ -12,7 +15,7 @@ export default class BackTop{
 	constructor() {
 		this.domAPI = _$.render(html);
 		this.elem = this.domAPI.getElemList(0);
-		this.appWrapper = _$('.app');
+		this.appWrapper = _$('body');
 
 		this.init();
 		_$('body').append(this.elem);

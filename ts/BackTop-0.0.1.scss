@@ -1,0 +1,11 @@
+.scroll-top-animate {
+    animation: .7s scroll-top-animation forwards
+}
+
+@keyframes scroll-top-animation {
+    to {
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
