@@ -1,5 +1,5 @@
-let _$ = require('../component/DomAPI-0.0.2.js');
-let AutoprefixerCssStyle = require('../component/AutoprefixerCssStyle-0.0.1.js');
+let _$ = require('./DomAPI-0.0.2.js');
+let AutoprefixerCssStyle = require('./AutoprefixerCssStyle-0.0.1.js');
 
 let html = `
 	<div class="back_top"></div>
