@@ -313,7 +313,15 @@ function DomAPI(elemSelector, elemParent) {
             return self;
         }
         //########################################################
-
+    self.toggleClass = function(className) {
+        self.containClassFilter(className, function(){
+            self.removeClass(className);
+        }, function(){
+            self.addClass(className);
+        })
+        return self;
+    }
+    //########################################################
 
     //########################################################
     // attribute ctrl
