@@ -51,7 +51,7 @@ export default class BackTop{
 		.addClass('scroll-top-animate')
 		.on('animationend webkitAnimationEnd', () => {
 			this.appWrapper
-			.css(AutoprefixerCssStyle.obj('transform', 'translate3d(0, 0, 0)'))
+			.css(AutoprefixerCssStyle.obj('transform', 'inherit'))
 			.removeClass('scroll-top-animate')
 			;
 		})
