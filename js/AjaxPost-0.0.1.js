@@ -1,4 +1,3 @@
-import _$$ from './DomAPI-0.0.2.js'
 import CreateId from './CreateId-0.0.1'
 
 
@@ -74,7 +73,9 @@ export function AjaxPost(options) {
         Cache.complete();
     }
     function AJAX_Complete(){
-        _$$('body').removeChild(script);
+        document.body.removeChild(script)
+        // _$$('body').removeChild(script);
+        
         window[Cache.data[Cache.CallBackName]] = null;
     }
     function setSuccess(success){
@@ -211,7 +212,8 @@ export function JSONP(options){
             script.onload = JSONP_Complete;
         Cache.script = script;
 
-        _$$('body').append([script]);
+        document.body.appendChild(script)
+        // _$$('body').append([script]);
     }
     Constructor();
     
@@ -230,7 +232,8 @@ export function JSONP(options){
         Cache.complete();
     }
     function JSONP_Complete(){
-        _$$('body').getElemList(0).removeChild(Cache.script);
+        document.body.removeChild(script)
+        // _$$('body').getElemList(0).removeChild(Cache.script);
         window[Cache.data[Cache.CallBackName]] = null;
     }
     function setSuccess(success){
