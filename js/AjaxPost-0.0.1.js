@@ -52,7 +52,7 @@ export function AjaxPost(options) {
     // 运行函数
     // run function
     CacheAPI.send = AJAX_Send;
-    
+
     CacheAPI.distory = distory;
 
     return CacheAPI;
@@ -60,7 +60,7 @@ export function AjaxPost(options) {
     function AJAX_Send(){
         if (Cache.state === Cache.STATE_OPENED) {
             Cache.beforeSend();
-            Cache.xmlhttp.send(Cache.reqData + '');
+            Cache.xmlhttp.send(Cache.reqData);
             Cache.afterSend();
             readystatechange(Cache.STATE_HEADERS_RECEIVED)
         }
@@ -125,7 +125,11 @@ export function AjaxPost(options) {
             Cache.reqData = undefined;
         }
         Cache.xmlhttp.open(Cache.type, Cache.reqURL, Cache.async);
-        Cache.xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        if(Cache.data instanceof FormData){
+            
+        }else{
+            Cache.xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        }
 
         if (Cache.autoSend) {
             AJAX_Send();
@@ -243,6 +247,9 @@ export function JSONP(options){
     }
 }
 export function AjaxData(data, type) {
+    if(data instanceof FormData){
+        return data;
+    }
     type = type || ''
     type = type.toUpperCase() === 'POST' ? 'POST' : 'GET';
     var dataArr = [];
