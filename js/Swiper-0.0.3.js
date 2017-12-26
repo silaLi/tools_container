@@ -8,6 +8,23 @@ import WindowEventCtrl from './WindowEventCtrl-0.0.1'
 import './swiper-0.0.1.scss'
 
 var SwiperCache = {};
+/**
+ * 
+ * @param {*} elem 
+ * @param {*} opt 
+ * opt.prevButton: Element
+ * opt.nextButton: Element
+ * opt.loop: boolean
+ * opt.wholeWidth: boolean
+ * opt.autoplay: number
+ * opt.onInit: (swiper) => void
+ * opt.auto_width: boolean
+ * opt.duration: number
+ * opt.onSlideStart: (swiper) => void
+ * opt.onSlideEnd: (swiper) => void
+ * opt.pagination: string | Element | DomAPI(DomAPI-0.0.2)
+ * opt.paginationTemplate_handler: (i, 'swiper-pagination-bullet', 'swiper-pagination-index') => string
+ */
 module.exports = function(elem, opt) {
     opt = opt || {};
 
