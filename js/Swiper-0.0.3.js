@@ -12,8 +12,8 @@ var SwiperCache = {};
  * 
  * @param {*} elem 
  * @param {*} opt 
- * opt.prevButton: Element
- * opt.nextButton: Element
+ * opt.prevButton: string | Element
+ * opt.nextButton: string | Element
  * opt.loop: boolean
  * opt.wholeWidth: boolean
  * opt.autoplay: number
