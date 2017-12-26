@@ -101,12 +101,19 @@ module.exports = function(elem, opt) {
             }else{
                 stopAutoPlay();
             }
+        },
+        go: function(num, animate){
+            if(animate != false){
+                animate = true;
+            }
+            setOffsetLeftValue(Cache.offsetLeftList[num],  animate);
+            Cache.transition_timer = setTimeout(updateWrapper_after, Cache.duration);
         }
     }
     SwiperCache[Swiper_id] = CacheAPI;
 
     // 初始化
-    typeof opt.onInit === 'function' && opt.onInit(Cache)
+    setTimeout(function(){ typeof opt.onInit === 'function' && opt.onInit(Cache) });
 
     return CacheAPI;
 
@@ -344,6 +351,7 @@ module.exports = function(elem, opt) {
         offsetLeftValue = offsetLeftValue == undefined ? Cache.activeOffsetLeft : offsetLeftValue;
         Cache.activeOffsetLeft = getOffsetLeftMax(offsetLeftValue);
         Cache.activeOffsetLeft = getOffsetLeftMin(Cache.activeOffsetLeft);
+        
         // Cache.wrapper.style.cssText = AutoprefixerCssStyle('transition-duration', direct ? 0 :( Cache.duration / 1000 ) + 's') + AutoprefixerCssStyle('transform', 'translate(-'+Cache.activeOffsetLeft+'px)')
         _$$.render([Cache.wrapper]).cssArray(AutoprefixerCssStyle.array('transition-duration', (direct ? 0 : Cache.duration / 1000) + 's').concat(AutoprefixerCssStyle.array('transform', 'translate(-' + Cache.activeOffsetLeft + 'px)')))
     }
